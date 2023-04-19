@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.dflex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container {
+  width: 1010px;
+  padding: 52px 85px;
+  border-radius: 10px;
+  margin: auto;
+  color: #fff;
+  background: #c76440;
+}
+#mcq h2 {   
+  border-radius: 10px;
+  margin-top: 40px;
+  background: #7140c7;
+  color: #fff;
+  padding: 10px 20px;
+  width: 120px;
+  margin: auto;
+  margin-bottom: 24px;
+}
+
+#mcq .clockcontainer{
+  width: 200px;
+  height: 200px;
+  background: #ddd;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  float: right;
+}
+#mcq .clock .semicircale{
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: right center;
+}
+
+#mcq .clock .semicircale:nth-child(1){
+  background: red;
+  background-color: #7140c7;
+  z-index: 2;
+}
+#mcq .clock .semicircale:nth-child(2){
+  background: blue;
+  background-color: #7140c7;
+  z-index: 3;
+}
+#mcq .clock .semicircale:nth-child(3){
+  background: white;
+  background-color: #ddd;
+  z-index: 4;
+  display: none;
+}
+
+#mcq .clock .outdorcircale{
+  width: 190px;
+  /* display: none; */
+  height: 190px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 95px);
+  right: calc(50% - 95px);
+  background: #bfb8b8 ;
+  z-index: 5;
+}
+
+.clockcontainer:hover .semicircale:nth-child(1){
+  transform: rotate(180deg);
+  transition: 1s linear;
+}
+
+.clockcontainer:hover .semicircale:nth-child(2){
+  transform: rotate(360deg);
+  transition: 2s linear;
+}
+.clockcontainer:hover .semicircale:nth-child(3){
+  opacity: 0;
+  transition: 01s 0s;
+}
+
+.timer-container{
+  width: 330px;
+  height: 200pxs;
+  z-index: 6;
+}
+.timer{
+  width: 400px;
+  height: 100px;
+  z-index: 7;
+}
+.timer div{
+  font-size: 70px;
+  font-weight: 100px;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px 0 10px;
+}
+
+.timer .colon {
+  background-color: transparent;
+  width: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+.quiz h4 {
+  margin-top: 20px;
+}
+
+.quiz .w input[type="radio"] {
+  cursor: pointer;
+}
+
+button{
+    margin-top: 10px;
+    background: #7140c7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+}

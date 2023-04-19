@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>MCQ</title>
+  </head>
+  <body>
+    <form id="mcq">
+      <h2>Game</h2>
+      <div class="container">
+        <div class="clock">
+          <div class="clockcontainer">
+            <div class="semicircale"></div>
+            <div class="semicircale"></div>
+            <div class="semicircale"></div>
+            <div class="outdorcircale"></div>
+            <div class="timer-container-center">
+              <div class="timer-center">1215</div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="quiz">
+          <h4>hvuie jefobht oijovgjer oirjgoijr</h4>
+          <div class="grid gap-3">
+            <div class="W">
+              <input type="radio" name="ans0" value="1" id="CLICK" required />
+              <label for="CLICK" class="p-2 g-col-6">Grid item 1</label>
+            </div>
+            <div class="W">
+              <input type="radio" name="ans0" value="2" id="CLICK1" required />
+              <label for="CLICK1" class="p-2 g-col-6">Grid item 2</label>
+            </div>
+            <div class="W">
+              <input type="radio" name="ans0" value="3" id="CLICK2" required />
+              <label for="CLICK2" class="p-2 g-col-6">Grid item 3</label>
+            </div>
+          </div>
+        </div>
+        <div class="quiz">
+          <h4>hvuie jefobht oijovgjer oirjgoijr</h4>
+          <div class="grid gap-3">
+            <div class="W">
+              <input type="radio" name="ans1" value="1" id="CLICK3" required />
+              <label for="CLICK3" class="p-2 g-col-6">Grid item 1</label>
+            </div>
+            <div class="W">
+              <input type="radio" name="ans1" value="2" id="CLICK4" required />
+              <label for="CLICK4" class="p-2 g-col-6">Grid item 2</label>
+            </div>
+            <div class="W">
+              <input type="radio" name="ans1" value="3" id="CLICK5" required />
+              <label for="CLICK5" class="p-2 g-col-6">Grid item 3</label>
+            </div>
+          </div>
+        </div>
+        <div class="quiz">
+          <h4>hvuie jefobht oijovgjer oirjgoijr</h4>
+          <div class="grid gap-3">
+            <div class="W">
+              <input type="radio" name="ans2" value="1" id="CLICK6" required />
+              <label for="CLICK6" class="p-2 g-col-6">Grid item 1</label>
+            </div>
+            <div class="W">
+              <input type="radio" name="ans2" value="2" id="CLICK7" required />
+              <label for="CLICK7" class="p-2 g-col-6">Grid item 2</label>
+            </div>
+            <div class="W">
+              <input type="radio" name="ans2" value="3" id="CLICK8" required />
+              <label for="CLICK8" class="p-2 g-col-6">Grid item 3</label>
+            </div>
+          </div>
+        </div>
+        <div class="quiz">
+          <h4>hvuie jefobht oijovgjer oirjgoijr</h4>
+          <div class="grid gap-3">
+            <div class="W">
+              <input type="radio" name="ans3" value="1" id="CLICK9" required />
+              <label for="CLICK9" class="p-2 g-col-6">Grid item 1</label>
+            </div>
+            <div class="W">
+              <input type="radio" name="ans3" value="2" id="CLICK10" required />
+              <label for="CLICK10" class="p-2 g-col-6">Grid item 2</label>
+            </div>
+            <div class="W">
+              <input type="radio" name="ans3" value="3" id="CLICK11" required />
+              <label for="CLICK11" class="p-2 g-col-6">Grid item 3</label>
+            </div>
+          </div>
+          <br />
+          <button class="view-results" type="submit">View Results</button>
+          <span id="myresults" class="my-results"
+            >My results will appear here</span
+          >
+        </div>
+      </div>
+    </form>
+
+    <script>
+      var answers = ["1", "1", "3", "2"],
+        tot = answers.length;
+
+      function getCheckedValue(returnScore) {
+        var radios = document.getElementsByName(returnScore);
+        for (var i = 0; i < radios.length; i++)
+          if (radios[i].checked) return radios[i].value;
+      }
+      function getScore() {
+        var score = 0;
+        for (var i = 0; i < tot; i++)
+          if (getCheckedValue("ans" + i) === answers[i]) score += 1;
+        return score;
+      }
+      function returnScore(evt) {
+        evt.preventDefault();
+        document.getElementById("myresults").innerHTML =
+          "Your score is " + getScore() + "/" + tot;
+        if (getScore() > 4) {
+          console.log("Bravo");
+        }
+      }
+      document.getElementById("mcq").addEventListener("submit", returnScore);
+
+      const semicircale = document.querySelectorAll(".container");
+
+      const hr = 0;
+      const min = 0;
+      const sec = 10;
+
+      const hours = hr * 3600000;
+      const minute = min * 60000;
+      const seconds = sec * 1000;
+      const setTime = hours + minute + seconds;
+      const startTime = Date.now();
+      const futureTime = setTime + startTime;
+
+      const timeloop = setInterval(countDownTimer);
+      countDownTimer();
+
+      function countDownTimer() {
+        const currentTime = Date.now();
+        const remainingTime = futureTime - currentTime;
+        const angle = (remainingTime / setTime) * 360;
+
+        if (angle > 180) {
+          container[1].style.display = 'none';
+          container[0].style.transform = 'rotate(180deg)';
+          container[2].style.transform = `rotate(${angle}deg)`;
+        }else{
+          container[2].style.display = 'block ';
+          container[0].style.transform = `rotate(${single}deg)`;
+          container[0].style.transform = `rotate(${single}deg)`;
+        }
+          
+        if(raminingTime < 0 ){
+            clearInterval(timeloop)
+            container[0].style.display = 'none'
+            container[1].style.transform = 'none'
+            container[2].style.transform = 'none'
+        }
+
+
+
+
+      }
+    </script>
+  </body>
+</html>
